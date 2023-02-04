@@ -7,16 +7,13 @@ function App() {
         // fetch data from the API
         const fetchData = async () => {
             const response = await fetch(
-                "http://api.open-notify.org/iss-now.json"
+                "https://api.wheretheiss.at/v1/satellites/25544"
             );
             const data = await response.json();
-            setCoordinates([
-                data.iss_position.latitude,
-                data.iss_position.longitude,
-            ]);
+            setCoordinates([data.latitude, data.longitude]);
         };
         fetchData().catch(console.error);
-    }, []);
+    });
 
     return (
         <div className="App bg-black text-center flex h-screen text-white">
