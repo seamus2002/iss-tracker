@@ -14,7 +14,7 @@ function App() {
 
         // fetch data from the API
         const fetchData = async () => {
-            await timeout(1000);
+            await timeout(3000);
             const response = await fetch(
                 "https://api.wheretheiss.at/v1/satellites/25544"
             );
