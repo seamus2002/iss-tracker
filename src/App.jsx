@@ -1,17 +1,27 @@
 import { useEffect, useState } from "react";
 
 function App() {
-    const [coordinates, setCoordinates] = useState([]);
+    const [coordinates, setCoordinates] = useState([
+        "Loading...",
+        "Loading...",
+    ]);
 
     useEffect(() => {
+        // Timeout function
+        function timeout(ms) {
+            return new Promise((resolve) => setTimeout(resolve, ms));
+        }
+
         // fetch data from the API
         const fetchData = async () => {
+            await timeout(1000);
             const response = await fetch(
                 "https://api.wheretheiss.at/v1/satellites/25544"
             );
             const data = await response.json();
             setCoordinates([data.latitude, data.longitude]);
         };
+
         fetchData().catch(console.error);
     });
 
