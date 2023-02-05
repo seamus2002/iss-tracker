@@ -44,6 +44,7 @@ function App() {
                         <Map position={position} />
                     </div>
                 </div>
+                <br />
             </div>
         </div>
     );
