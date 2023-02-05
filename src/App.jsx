@@ -4,7 +4,7 @@ import Map from "./Map";
 import ParticlesBackground from "./ParticlesBackground";
 
 function App() {
-    const [position, setPosition] = useState([0, 0]);
+    const [position, setPosition] = useState([0, 0, 0]);
 
     useEffect(() => {
         // Timeout function
@@ -18,7 +18,7 @@ function App() {
                 "https://api.wheretheiss.at/v1/satellites/25544"
             );
             const data = await response.json();
-            setPosition([data.latitude, data.longitude]);
+            setPosition([data.latitude, data.longitude, data.altitude]);
         };
 
         fetchData().catch(console.error);
@@ -39,6 +39,7 @@ function App() {
                     <div className="data text-left text-xl md:text-2xl pb-20 pl-5 ">
                         <p>Lattitude: {position[0]}</p>
                         <p>Longitude: {position[1]}</p>
+                        <p>Altitude: {position[2]} km</p>
                     </div>
                     <div>
                         <Map position={position} />
