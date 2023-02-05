@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "./App.css";
+import Map from "./Map";
 
 function App() {
     const [position, setPosition] = useState([0, 0]);
@@ -36,27 +37,7 @@ function App() {
                         <p>Longitude: {position[1]}</p>
                     </div>
                     <div>
-                        <div className="leaflet-container">
-                            <MapContainer
-                                center={position}
-                                zoom={1}
-                                scrollWheelZoom={false}
-                            >
-                                <TileLayer
-                                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                                />
-                                <Marker position={position}>
-                                    <Popup>
-                                        International Space Station
-                                        <br />
-                                        Lat: {position[0]}
-                                        <br />
-                                        Long: {position[1]}
-                                    </Popup>
-                                </Marker>
-                            </MapContainer>
-                        </div>
+                        <Map position={position} />
                     </div>
                 </div>
             </div>
