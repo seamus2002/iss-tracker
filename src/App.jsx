@@ -32,8 +32,8 @@ function App() {
                     International Space Station Tracker
                 </h1>
 
-                <div className="columns-2 text-4xl">
-                    <div className="data text-left">
+                <div className=" xl:columns-2">
+                    <div className="data text-left text-4xl pb-20">
                         <p>Lattitude: {position[0]}</p>
                         <p>Longitude: {position[1]}</p>
                     </div>

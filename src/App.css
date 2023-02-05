@@ -17,3 +17,10 @@
 .data {
     font-family: "Roboto Mono", sans-serif;
 }
+
+@media all and (max-width: 600px) {
+    .leaflet-container {
+        width: 300px;
+        height: 200px;
+    }
+}
