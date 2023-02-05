@@ -7,36 +7,36 @@ function App() {
     const [position, setPosition] = useState([0, 0, 0]);
 
     useEffect(() => {
-        // Timeout function
-        function timeout(ms) {
-            return new Promise((resolve) => setTimeout(resolve, ms));
-        }
-
         // fetch data from the API
         const fetchData = async () => {
-            const response = await fetch(
-                "https://api.wheretheiss.at/v1/satellites/25544"
-            );
-            const data = await response.json();
-            setPosition([data.latitude, data.longitude, data.altitude]);
+            try {
+                const response = await fetch(
+                    "https://api.wheretheiss.at/v1/satellites/25544"
+                );
+                const data = await response.json();
+                setPosition([data.latitude, data.longitude, data.altitude]);
+            } catch (err) {
+                console.log(err);
+            }
         };
 
-        fetchData().catch(console.error);
+        fetchData();
     }, []);
+
+    const date = new Date();
 
     return (
         <div className="App bg-black text-center flex h-screen">
             <ParticlesBackground className="-z-10" />
             <div className="m-auto text-white z-10">
-                <h1
-                    className="text-5xl sm:text-6xl md:text-7xl py-20"
-                    id="title"
-                >
+                <h1 className="text-5xl sm:text-6xl md:text-7xl py-20">
                     International Space Station Tracker
                 </h1>
 
                 <div className=" xl:columns-2">
-                    <div className="data text-left text-xl md:text-2xl pb-20 pl-5 ">
+                    <div className="text-left text-xl md:text-2xl pb-20 pl-5 ">
+                        <p>Date: {date.toLocaleDateString()}</p>
+                        <p>Time: {date.toLocaleTimeString()}</p>
                         <p>Lattitude: {position[0]}</p>
                         <p>Longitude: {position[1]}</p>
                         <p>Altitude: {position[2]} km</p>
