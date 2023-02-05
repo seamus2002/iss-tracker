@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "./App.css";
 import Map from "./Map";
+import ParticlesBackground from "./ParticlesBackground";
 
 function App() {
     const [position, setPosition] = useState([0, 0]);
@@ -25,8 +25,9 @@ function App() {
     }, []);
 
     return (
-        <div className="App bg-black text-center flex h-screen text-white">
-            <div className="m-auto">
+        <div className="App bg-black text-center flex h-screen">
+            <ParticlesBackground className="-z-10" />
+            <div className="m-auto text-white z-10">
                 <h1 className="text-7xl">
                     International Space Station Tracker
                 </h1>

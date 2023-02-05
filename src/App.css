@@ -2,3 +2,7 @@
     width: 600px;
     height: 400px;
 }
+
+.particles {
+    z-index: -1;
+}
