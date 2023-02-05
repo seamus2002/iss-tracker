@@ -28,12 +28,12 @@ function App() {
         <div className="App bg-black text-center flex h-screen">
             <ParticlesBackground className="-z-10" />
             <div className="m-auto text-white z-10">
-                <h1 className="text-7xl">
+                <h1 className="text-7xl py-20" id="title">
                     International Space Station Tracker
                 </h1>
 
                 <div className="columns-2 text-4xl">
-                    <div className="text-left">
+                    <div className="data text-left">
                         <p>Lattitude: {position[0]}</p>
                         <p>Longitude: {position[1]}</p>
                     </div>
